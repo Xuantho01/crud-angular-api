@@ -1,0 +1,32 @@
+<button routerLink="/add">Create new book</button>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>AUTHOR</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of bookList; index as i">
+    <td>
+      <h5>{{book.id}}</h5>
+    </td>
+    <td>
+      {{book.title}}
+    </td>
+    <td>
+      {{book.author}}
+    </td>
+    <td>
+      <a [routerLink]="['detail',book.id]">view</a>
+    </td>
+    <td>
+      <button [routerLink]="['/book',book.id,'edit']">edit</button>
+    </td>
+    <td>
+      <button (click)="onclick(book.id)">delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
